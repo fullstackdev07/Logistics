@@ -1,0 +1,17 @@
+<mat-card>
+    <div #content  class="content">
+        <img alt="logo" [attr.src]="headerLogo" style="height: 150px; width:320px;"/>
+        <hr/>
+        <p>
+            Some invoice data like 
+            
+        </p>
+        <h3>From:</h3>
+        <p>some adress</p>
+        <h3>To:</h3>
+        <p>some adress</p>
+
+        <p>Some other invoice data</p>
+    </div>
+    <button mat-raised-button color="primary" (click)="savePdf()">{{'Save Invoice' | translate}}</button>
+</mat-card>

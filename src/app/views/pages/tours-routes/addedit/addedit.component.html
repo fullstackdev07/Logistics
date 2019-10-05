@@ -1,0 +1,147 @@
+<form class="kt-form kt-form--label-right" id="toursFrm" [formGroup]="tourFrm">
+  <input type="hidden" name="toursId" formControlName="toursId">
+  <mat-card-content>
+      <mat-tab-group class="demo-tab-group">
+          <mat-tab label="{{ 'overview' | translate }}">
+              <div class="col-md-12">
+                  <div class="kt-portlet__body">
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-4">
+                            <mat-card>
+                              <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label for="tour_no">{{ 'tour_no' | translate }}
+                            </label>
+                            <input type="text" formControlName="tour_no"  class="form-control" name="tour_no" id="tour_no" disabled>
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="surname">{{ 'surname' | translate }}
+                            </label>
+                            <input type="text" formControlName="surname" class="form-control" name="surname" id="surname">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="description">{{ 'description' | translate }}
+                            </label>
+                            <input type="text" class="form-control" formControlName="description" name="description" id="description">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="customer">{{ 'customer' | translate }}
+                            </label>
+                            <input type="text" formControlName="customer" class="form-control" name="customer" id="customer">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="client_award">{{ 'client_award' | translate }}
+                            </label>
+                            <input type="text" class="form-control" formControlName="client_award" name="client_award" id="client_award">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="price_basis">{{ 'price_basis' | translate }}
+                            </label>
+                            <input type="text" onlyNumber class="form-control" formControlName="price_basis" name="price_basis" id="price_basis">
+                          </div>
+
+                          <div class="col-md-6 mb-2">
+                            <label for="day">{{ 'day' | translate }}
+                            </label>
+                            <input type="date" class="form-control" formControlName="day" name="day" id="day">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="valid_from">{{ 'valid_from' | translate }}
+                            </label>
+                            <input type="date" class="form-control" formControlName="valid_from" name="valid_from" id="valid_from">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="date_of_expiry">{{ 'date_of_expiry' | translate }}
+                            </label>
+                            <input type="date" class="form-control" formControlName="date_of_expiry" name="date_of_expiry" id="date_of_expiry">
+                          </div>
+                          <div class="col-md-6 mb-2">
+                            <label for="tour_type">{{ 'tour_type' | translate }}
+                            </label>
+                            <input type="text" class="form-control" formControlName="tour_type" name="tour_type" id="tour_type">
+                          </div>
+                              </div>
+                            </mat-card>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+          </mat-tab>
+          <mat-tab label="{{ 'contractor' | translate }}">
+              <div class="col-md-12">
+                  <div class="kt-portlet__body">
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-4">
+                            <mat-card>
+                              <div class="row">
+                                  <div class="col-md-6 mb-2">
+                                      <label for="power_partners">{{ 'power_partners' | translate }}
+                                      </label>
+                                      <input type="text" class="form-control" formControlName="service_power_partners" name="power_partners" id="power_partners">
+                                    </div>
+
+                                    <div class="col-md-6 mb-2">
+                                      <label for="valid_from">{{ 'valid_from' | translate }}
+                                      </label>
+                                      <input type="date" class="form-control" formControlName="service_valid_from" name="valid_from" id="valid_from">
+                                    </div>
+
+                                    <div class="col-md-6 mb-2">
+                                      <label for="date_of_expiry">{{ 'date_of_expiry' | translate }}
+                                      </label>
+                                      <input type="date" class="form-control" formControlName="service_date_of_expiry" name="date_of_expiry" id="date_of_expiry">
+                                    </div>
+
+                                    <div class="col-md-6 mb-2">
+                                      <label for="ltp_prize_week">{{ 'ltp_prize_week' | translate }}
+                                      </label>
+                                      <input type="text" class="form-control" formControlName="service_ltp_prize_week" name="ltp_prize_week" id="ltp_prize_week">
+                                    </div>
+
+                                    <div class="col-md-6 mb-2">
+                                      <label for="ltp_prize_we">{{ 'ltp_prize_we' | translate }}
+                                      </label>
+                                      <input type="text" class="form-control" formControlName="service_ltp_prize_we" name="ltp_prize_we" id="ltp_prize_we">
+                                    </div>
+                              </div>
+                            </mat-card>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="{{ 'comments' | translate }}">
+                <div class="col-md-12">
+                    <div class="kt-portlet__body">
+                        <div class="form-group row">
+                          <div class="col-sm-12 mb-4">
+                              <mat-card>
+                                  <div class="col-md-12 mb-2">
+                                      <label for="type">{{ 'comments' | translate }}
+                                      </label>
+                                      <textarea class="form-control" formControlName="comment"  style="min-height: 250px;"  ></textarea>
+                                  </div>
+                                </mat-card>
+                          </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+            </mat-tab>
+        </mat-tab-group>
+
+        <div class="kt-portlet__foot">
+            <div class=" p-0">
+              <div class="row" style="padding-top: 20px;">
+                <div class="col-lg-12 text-center">
+                  <button type="submit" class="btn btn-success" (click)="submitFrm()" style="padding: 10px 30px;">{{ 'save' | translate }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </mat-card-content>
+
+  </form>

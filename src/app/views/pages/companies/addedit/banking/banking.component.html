@@ -1,0 +1,81 @@
+<form class="kt-form kt-form--label-right" id="bankingFrm" [formGroup]="bankingFrm">
+  <div class="kt-portlet__body">
+    <div class="form-group row">
+      <div class="col-lg-6 mb-4">
+        <mat-card>
+          <div class="mb-2">
+            <label for="account">{{ 'account' | translate }}
+            </label>
+            <input type="text" onlyNumber formControlName="account"  class="form-control" name="account" id="account">
+          </div>
+          <div class="mb-2">
+            <label for="bank_code">{{ 'bank_code' | translate }}
+            </label>
+            <input type="text" formControlName="bank_code" class="form-control" name="bank_code" id="bank_code">
+          </div>
+          <div class="mb-2">
+            <label for="bank_name">{{ 'bank_name' | translate }}
+            </label>
+            <input type="text" formControlName="bank_name" class="form-control" name="bank_name" id="bank_name">
+          </div>
+          <div class="mb-2">
+            <label for="iban">{{ 'iban' | translate }}
+            </label>
+            <input type="text" class="form-control" formControlName="iban" name="iban" id="iban">
+          </div>
+          <div class="mb-2">
+            <label for="bic">{{ 'bic' | translate }}
+            </label>
+            <input type="text" class="form-control" formControlName="bic" name="bic" id="bic">
+          </div>
+          <div class="mb-2">
+            <label for="dtaus_no">{{ 'dtaus_no' | translate }}
+            </label>
+            <input type="text" class="form-control" formControlName="dtaus_no" name="dtaus_no" id="dtaus_no">
+          </div>
+
+        </mat-card>
+
+      </div>
+      <div class="col-lg-6 mb-4">
+        <mat-card>
+          <div class="mb-2">
+            <label for="usage">{{ 'usage' | translate }}
+            </label>
+            <input type="text" formControlName="usage" id="usage" class="form-control" name="usage">
+          </div>
+          <div class="mb-2">
+            <label for="dtaus_path">{{ 'dtaus_path' | translate }}
+            </label>
+            <input type="text" formControlName="dtaus_path" id="dtaus_path" class="form-control" name="dtaus_path">
+          </div>
+          <div class="mb-2">
+            <label for="sepa">{{ 'sepa' | translate }}
+            </label>
+            <input type="text" formControlName="sepa" id="sepa" class="form-control" name="sepa">
+          </div>
+          <div class="mb-2">
+            <label for="converter">{{ 'converter' | translate }}
+            </label>
+            <input type="text" formControlName="converter" id="converter" class="form-control" name="converter">
+          </div>
+
+          <div class="mb-2">
+            <label for="sepa_path">{{ 'sepa_path' | translate }}
+            </label>
+            <input type="text" formControlName="sepa_path" id="sepa_path" class="form-control" name="sepa_path">
+          </div>
+
+          <div class="mb-2">
+            <label for="sepa_no">{{ 'sepa_no' | translate }}
+            </label>
+            <input type="text" formControlName="sepa_no" id="sepa_no" class="form-control" name="sepa_no">
+          </div>
+        </mat-card>
+
+      </div>
+      
+    </div>
+  </div>
+  
+</form>

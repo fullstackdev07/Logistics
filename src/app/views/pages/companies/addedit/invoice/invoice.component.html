@@ -1,0 +1,53 @@
+<form class="kt-form kt-form--label-right" id="invoiceFrm" [formGroup]="invoiceFrm" >
+  <div class="kt-portlet__body">
+    <div class="form-group row">
+      <div class="col-lg-6 mb-4">
+        <mat-card>
+          <div class="mb-2">
+            <label for="executive_director">{{ 'executive_director' | translate }}
+            </label>
+            <input type="text" formControlName="executive_director"  class="form-control" name="executive_director" id="executive_director">
+          </div>
+          <div class="mb-2">
+            <label for="commercial register">{{ 'commercial_register' | translate }}
+            </label>
+            <input type="text" formControlName="commercial_register" class="form-control" name="commercial_register" id="commercial register">
+          </div>
+          <div class="mb-2">
+            <label for="ust_id">{{ 'ust_id' | translate }}
+            </label>
+            <input type="text" formControlName="ust_id" class="form-control" name="ust_id" id="ust_id">
+          </div>
+          <div class="mb-2">
+            <label for="tax_number">{{ 'tax_number' | translate }}
+            </label>
+            <input type="text" class="form-control" formControlName="tax_number" name="tax_number" id="tax_number">
+          </div>
+
+        </mat-card>
+
+      </div>
+      <div class="col-lg-6 mb-4">
+        <mat-card>
+          <div class="mb-2">
+            <label for="logo_file">{{ 'logo_file' | translate }}
+            </label>
+            <input type="text" formControlName="logo_file" id="logo_file" class="form-control" name="logo_file">
+          </div>
+          <div class="mb-2">
+            <label for="logo_position">{{ 'logo_position' | translate }}
+            </label>
+            <input type="text" onlyNumber formControlName="logo_position" id="logo_position" class="form-control" name="logo_position">
+          </div>
+          <div class="mb-2">
+            <label for="website">{{ 'website' | translate }}
+            </label>
+            <input type="text" formControlName="website" id="website" class="form-control" name="website">
+          </div>
+        </mat-card>
+
+      </div>
+      
+    </div>
+  </div>
+</form>

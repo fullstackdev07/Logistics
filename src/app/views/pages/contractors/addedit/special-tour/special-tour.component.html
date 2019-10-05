@@ -1,0 +1,44 @@
+<div class="col-md-12" style="padding-bottom: 15px;">
+
+  <mat-card>
+      <div class="row mt-2">
+        <form class="kt-form kt-form--label-right" autocomplete="off" id="specialTourFrm" style="width: 100%" [formGroup]="specialtourFrm">
+          <div class="kt-portlet__body">
+            <div class="form-group row">
+
+              <div class="col-lg-4 mb-2">
+                <label for="description">{{'description' | translate }}</label>
+                <input type="text" formControlName="description" class="form-control" name="description" id="description"
+                     placeholder="{{'description' | translate }}">
+              </div>
+
+              <div class="col-lg-4 mb-2">
+                <label for="days">{{'days' | translate }}</label>
+                <input type="text" formControlName="days" class="form-control" name="days" id="days"
+                     placeholder="{{'days' | translate }}">
+              </div>
+
+              <div class="col-lg-4 mb-2">
+                <label for="client_price">{{'client_price' | translate }}</label>
+                <input type="text" currencyMask formControlName="client_price" class="form-control" name="client_price" id="client_price"  placeholder="{{'client_price' | translate }}">
+              </div>
+
+              <div class="col-lg-4 mb-2">
+                <label for="contractors_price">{{'contractors_price' | translate }}</label>
+                <input type="text" currencyMask  formControlName="contractors_price" class="form-control" name="contractors_price" id="contractors_price"
+                     placeholder="{{'contractors_price' | translate }}">
+              </div>
+
+              <div class="col-lg-4 mb-2">
+                <label for="contractors">{{'contractors' | translate }}</label>
+                <input type="text" formControlName="contractors" class="form-control" name="contractors" id="contractors" placeholder="{{'contractors' | translate }}">
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+
+</div>
+

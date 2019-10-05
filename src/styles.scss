@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/vendors/global/vendors.bundle.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "~highlight.js/styles/googlecode.css";
+
+// hide bootstrap dropdown arrow globally
+.dropdown-toggle::after {
+	display: none !important;
+}
+
+.p-tb-4{
+	padding:1.5rem 0rem !important
+}
+
+.mat-table__wrapper--dashboard .mat-table {
+	min-width: 600px!important;
+	width: 100% !important;
+}
+
+.position-static {
+	position: static;
+}
+.mat-tab-labels {
+	background: white;
+}
+
+.validateFrm input.ng-invalid, .validateFrm textarea.ng-invalid , .validateFrm select.ng-invalid{
+	border: 1px solid red;
+}
+
+.dataTables_empty{
+	display: none;
+}
+
+.table td, .table th{
+    vertical-align: middle !important;
+}
+table.dataTable thead .sorting{
+	background-image : none !important;
+}
+table.dataTable thead .sorting_desc , table.dataTable thead .sorting_asc{
+	background-image : none !important;
+}
+table.dataTable thead th, table.dataTable thead td{
+	padding: 10px 8px !important;
+}
+table.dataTable thead th, table.dataTable thead td , table.dataTable tbody th, table.dataTable tbody td
+{
+	border-bottom: 0px solid #ebedf2 !important;
+}
+table.dataTable.no-footer {
+    border-bottom: 1px solid #ebedf2 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+	padding: 0.2em .2em !important;
+	margin-left: 0 !important; 
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover
+{
+	color: white !important;
+    border: 0px !important; 
+    background-color: #fff !important;
+    background: none !important; 
+}
+
+
+ .l-icon {
+	width: 25px;
+    height: 25px;
+	display: inline-block;
+	-webkit-mask-size: cover;
+	mask-size: cover;
+	background-color: #434d6b;
+	margin-right: 10px;
+	
+  }
+  .kt-menu__item--active .l-icon{
+
+	background-color: #adb9f2;
+
+  }
+
+  .icon-client{
+	-webkit-mask: url(./assets/media/icons/Clients.svg) no-repeat 50% 50%;
+	mask: url(./assets/media/icons/Clients.svg) no-repeat 50% 50%;
+	-webkit-mask-size: 25px 25px;
+    mask-size: 25px 25px;
+  }
+
+  .icon-contractor{
+	-webkit-mask: url(./assets/media/icons/Contractors.svg) no-repeat 50% 50%;
+	mask: url(./assets/media/icons/Contractors.svg) no-repeat 50% 50%;
+  }
+  .icon-company{
+	-webkit-mask: url(./assets/media/icons/companies.svg) no-repeat 50% 50%;
+	mask: url(./assets/media/icons/companies.svg) no-repeat 50% 50%;
+  }
+  .icon-article{
+	-webkit-mask: url(./assets/media/icons/Articles.svg) no-repeat 50% 50%;
+	mask: url(./assets/media/icons/Articles.svg) no-repeat 50% 50%;
+
+	-webkit-mask-size: 25px 25px;
+	mask-size: 25px 25px;
+  }
+  .icon-person{
+	-webkit-mask: url(./assets/media/icons/Persons.svg) no-repeat 50% 50%;
+	mask: url(./assets/media/icons/Persons.svg) no-repeat 50% 50%;
+  }
+  .icon-tour{
+	-webkit-mask: url(./assets/media/icons/Tours.svg) no-repeat 50% 50%;
+	mask: url(./assets/media/icons/Tours.svg) no-repeat 50% 50%;
+  }
+
+  .norecord .dataTables_processing{
+	top: 75% !important;
+    padding: .5em 0 !important;
+  }
+
+   .mat-card{
+	    background: rgba(255, 255, 255, 1) !important;
+	   // opacity: .95 !important;
+	}
+	.mat-tab-body{
+		background: rgba(255, 255, 255, 0.3) !important;
+	}
+	.mat-tab-body-content{ height: auto !important ;}
+	.m-t-10{ margin-top: 10px; }
+	.m-t-5{ margin-top: 5px; }
+	.m-l-10{ margin-left: 10px !important; }
+	.p-0{padding: 0px !important;}
+	.popup_header{
+		font-size: 16px;
+    	font-weight: 500;
+	}
+
+	body.modal-open {
+		height: 100vh !important;
+		overflow-y: hidden !important;
+	}
+	.input-group-append .input-group-text{
+		color: #333;
+	}
+
+@media (min-width: 1025px) {
+	.kt-header--fixed.kt-subheader--fixed.kt-subheader--enabled .kt-wrapper {
+		&#kt_wrapper {
+			padding-top: 65px;
+		}
+	}
+
+}

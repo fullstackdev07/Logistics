@@ -1,0 +1,220 @@
+<div class="col-md-12">
+		<form class="kt-form kt-form--label-right" id="overviewFrm" [formGroup]="overviewData" autocomplete="off">
+				<input type="hidden" formControlName="clientId"  class="form-control" name="clientId" id="clientId">
+
+				<div class="kt-portlet__body">
+					<div class="form-group row">
+						<div class="col-lg-6 mb-4">
+							<mat-card>
+								<div class="mb-2">
+									<label for="clientNumber">{{ 'client_number' | translate }}
+										<!--							{{ 'clientNumber' | translate }}-->
+									</label>
+									<input type="text" formControlName="clientNumber"  class="form-control" name="clientNumber" id="clientNumber" disabled>
+								</div>
+								<div class="mb-2">
+									<label for="name1">{{ 'name1' | translate }}
+										<!--							{{ 'name1' | translate }}-->
+									</label>
+									<input type="text" formControlName="name1" class="form-control" name="name1" id="name1">
+								</div>
+								<div class="mb-2">
+									<label for="name2">{{ 'name2' | translate }}
+										<!--							{{ 'name2' | translate }}-->
+									</label>
+									<input type="text" class="form-control" formControlName="name2" name="name2" id="name2">
+								</div>
+								<div class="mb-2">
+									<label for="street">{{ 'street' | translate }}
+										<!--							{{ 'street' | translate }}-->
+									</label>
+									<input type="text"  formControlName="street" class="form-control" name="street" id="street">
+								</div>
+								<div class="mb-2">
+									<label for="zipcode">{{ 'zipcode' | translate }}
+									</label>
+									<div class="row">
+										<div class="col-4">
+											<input type="text" onlyNumber class="form-control" formControlName="zipcode" name="zipcode" id="zipcode">
+										</div>
+										<div class="col-8">
+											<input type="text"  class="form-control" formControlName="city" name="city" id="city">
+										</div>
+									</div>
+
+								</div>
+								<div class="mb-2">
+									<label for="state">{{ 'state' | translate }}
+									</label>
+									<select id="state" formControlName="state" class="form-control" name="state">
+										<option *ngFor="let item of stateList"  value="{{item.stateId}}" >{{item.name}}</option>
+									</select>
+								</div>
+								<div class="mb-2">
+									<label for="state">{{ 'state' | translate }}
+									</label>
+									<select id="state" formControlName="state" class="form-control" name="state">
+										<option *ngFor="let item of stateList"  value="{{item.stateId}}" >{{item.name}}</option>
+									</select>
+								</div>
+								<div class="mb-2">
+									<label for="phone1">{{ 'phone1' | translate }}
+										<!--							{{ 'phone1' | translate }}-->
+									</label>
+									<input type="text" onlyNumber class="form-control" formControlName="phone1" name="phone1" id="phone1">
+								</div>
+								<div class="mb-2">
+									<label for="phone2">{{ 'phone2' | translate }}
+										<!--							{{ 'phone2' | translate }}-->
+									</label>
+									<input type="text" onlyNumber class="form-control" formControlName="phone2" name="phone2" id="phone2">
+								</div>
+								<div class="mb-2">
+									<label for="mobile">{{ 'mobile' | translate }}
+									</label>
+									<input type="text" onlyNumber class="form-control" formControlName="mobile" name="mobile" id="mobile">
+								</div>
+
+							</mat-card>
+
+						</div>
+						<div class="col-lg-6 mb-4">
+							<mat-card>
+								<div class="mb-2">
+									<label for="fax">{{ 'fax' | translate }}
+									</label>
+									<input type="text" class="form-control" formControlName="fax" name="fax" id="fax">
+								</div>
+								<div class="mb-2">
+									<label for="email">{{ 'email' | translate }}
+									</label>
+									<input type="email" class="form-control" formControlName="email" name="email" id="email">
+								</div>
+								<div class="mb-2">
+									<label for="rech_rhythm">{{ 'rech_rhythm' | translate }}
+									</label>
+									<select class="form-control" formControlName="rech_rhythm" name="rech_rhythm" id="rech_rhythm">
+										<option *ngFor="let item of rechRhythmLust"  value="{{item}}" >{{item}}</option>
+									</select>
+								</div>
+
+								<div class="mb-2">
+									<label for="zahl_rhythm">{{ 'zahl_rhythm' | translate }}
+									</label>
+									<select  class="form-control" formControlName="zahl_rhythm" name="zahl_rhythm" id="zahl_rhythm">
+										<option *ngFor="let item of zahlRhythmList"  value="{{item}}" >{{item}}</option>
+									</select>
+								</div>
+
+								<div class="mb-2">
+									<label for="contract_file">{{ 'contract_file' | translate }}
+									</label>
+									<input type="file" name="contract_file" id="contract_file"  (change)="fileChange($event)" accept=".pdf" class="form-control">
+								</div>
+
+								<div class="mb-2">
+									<label for="contract_start_date">{{ 'contract_start_date' | translate }}
+									</label>
+
+									<input type="text" daterangepicker [options]="contract_start_date" formControlName="contract_start_date" id="contract_start_date" class="form-control" name="contract_start_date" (selected)="contract_start_dateSelect($event)" >
+								</div>
+
+								<div class="mb-2">
+									<label for="contract_end_date">{{ 'contract_end_date' | translate }}
+									</label>
+									<input type="text" daterangepicker [options]="contract_end_date"  formControlName="contract_end_date" id="contract_end_date" class="form-control" name="contract_end_date" (selected)="contract_end_dateSelect($event)" >
+								</div>
+								<div class="mb-2">
+									<label for="termination_time">{{ 'termination_time' | translate }}
+									</label>
+									<select  formControlName="termination_time" id="termination_time" (change)="changeTerminationTime($event)" class="form-control" name="termination_time">
+										<option *ngFor="let item of terminationTimeList"  value="{{item}}" >{{item}}</option>
+									</select>
+									<input type="text" *ngIf="termination_time_value_show" formControlName="termination_time_value" id="termination_time_value" class="form-control m-t-10 " placeholder="{{'days' | translate}}" name="termination_time_value" >
+								</div>
+
+
+							</mat-card>
+
+						</div>
+						<div class="col-lg-12 mb-4">
+							<mat-card>
+								<div class="row">
+
+									<div class="mb-2 col-lg-6">
+										<label for="iban">{{ 'iban' | translate }}
+										</label>
+										<input type="text" formControlName="iban" id="iban" class="form-control" name="iban">
+									</div>
+
+									<div class="mb-2 col-lg-6">
+										<label for="bank">{{ 'bank' | translate }}
+										</label>
+										<input type="text" formControlName="bank" id="bank" class="form-control" name="bank">
+									</div>
+									<div class="mb-2 col-lg-6">
+										<label for="tax_identification_number">{{ 'tax_identification_number' | translate }} </label>
+										<input type="text" formControlName="tax_identification_number" id="tax_identification_number" class="form-control" name="tax_identification_number">
+									</div>
+
+									<div class="mb-2 col-lg-6">
+										<label for="national_tax_number">{{ 'national_tax_number' | translate }}
+										</label>
+										<input type="text" formControlName="national_tax_number" id="national_tax_number" class="form-control" name="national_tax_number">
+									</div>
+
+									<div class="mb-2 col-lg-6">
+										<label for="billed">{{ 'billed' | translate }}
+										</label>
+										<input type="text" formControlName="billed" id="billed" class="form-control" name="billed">
+									</div>
+
+									<div class="mb-2 col-lg-6">
+										<label class="form-check-label" style="margin-bottom: 7px;">{{ 'vat_mandatory' | translate }}
+
+											 <input class="form-check-input m-l-10"   formControlName="ustr_mandatory" id="ustr_mandatory"  name="ustr_mandatory" (click)="changeuStrMandatory()" type="checkbox">
+
+										</label>
+										<div class="vat-mandatory mb-3">
+											<section class="mr-4">
+												<mat-slide-toggle
+													formControlName="ustr_mandatory"
+													(change)="changeuStrMandatory()"
+													id="ustr_mandatory"
+													name="ustr_mandatory">
+												</mat-slide-toggle>
+											</section>
+											<div style="display: flex;">
+												<input type="text" onlyNumber formControlName="ustr_mandatory_value" id="ustr_mandatory_value" max="100" maxlength="3" class="form-control" name="ustr_mandatory_value" [attr.disabled]="ustr_mandatory_disabled == true ? true : null">
+												<div class="input-group-append">
+													<span class="input-group-text">%</span>
+												</div>
+											</div>
+										  </div>
+									</div>
+
+									<div class="mb-2 col-lg-6">
+										<label for="currency">{{ 'currency' | translate }}
+										</label>
+
+										<select formControlName="currency" id="currency" class="form-control" name="currency">
+											<option *ngFor="let item of currencyList"  value="{{item}}" >{{item}}</option>
+										</select>
+									</div>
+									<div class="mb-2 col-lg-6">
+										<label for="vendor_number">{{ 'vendor_number' | translate }}
+										</label>
+										<input type="text" onlyNumber formControlName="vendor_number" id="vendor_number" class="form-control" name="vendor_number">
+									</div>
+
+								</div>
+							</mat-card>
+
+
+						</div>
+
+					</div>
+				</div>
+
+			</form>
+</div>

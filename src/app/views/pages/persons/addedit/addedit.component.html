@@ -1,0 +1,121 @@
+<form class="kt-form kt-form--label-right" autocomplete="off" id="personsFrm" [formGroup]="personsFrm">
+
+<mat-card-content>
+    <mat-tab-group class="demo-tab-group">
+      <mat-tab label="{{ 'overview' | translate }}" >
+          <div class="col-md-12">
+              <div class="kt-portlet__body">
+                  <div class="form-group row">
+                    <div class="col-sm-12 mb-4">
+                        <mat-card>
+                          <div class="row">
+                              <div class="col-md-6 mb-2">
+                                <label for="person_number">{{ 'person_number' | translate }}
+                                </label>
+                                <input type="text" formControlName="person_number"  class="form-control" name="person_number" id="person_number" disabled>
+                              </div>
+
+                              <div class="col-md-6 mb-2">
+                                <label for="type">{{ 'type' | translate }}
+                                </label>
+                                <select class="form-control" formControlName="type" name="type" id="type">
+                                  <option *ngFor="let ptyptD of person_type_list" value="{{ptyptD}}">{{ptyptD}}</option>
+                                </select>
+                                <!-- <input type="text" class="form-control" formControlName="type" name="type" id="type"> -->
+                              </div>
+                              
+                              <div class="col-md-6 mb-2">
+                                <label for="salutation">{{ 'salutation' | translate }}
+                                </label>
+                                <select formControlName="salutation" class="form-control" name="salutation" id="salutation">
+                                  <option *ngFor="let item of salutationList" value="{{item}}">{{item}}</option>
+                                </select>
+                                
+                              </div>
+                              <div class="col-md-6 mb-2">
+                                <label for="first_name">{{ 'firstName' | translate }}
+                                </label>
+                                <input type="text" class="form-control" formControlName="first_name" name="first_name" id="first_name">
+                              </div>
+                              <div class="col-md-6 mb-2">
+                                <label for="surname">{{ 'surname' | translate }}
+                                </label>
+                                <input type="text" formControlName="surname" class="form-control" name="surname" id="surname">
+                              </div>
+                              <div class="col-md-6 mb-2">
+                                <label for="position">{{ 'position' | translate }}
+                                </label>
+                                <input type="text" class="form-control" formControlName="position" name="position" id="position">
+                              </div>
+                              <div class="col-md-6 mb-2">
+                                <label for="department">{{ 'department' | translate }}
+                                </label>
+                                <input type="text" class="form-control" formControlName="department" name="department" id="department">
+                              </div>  
+                              
+                              <div class="col-md-6 mb-2">
+                                <label for="phone">{{ 'phone' | translate }}
+                                </label>
+                                <input type="text" onlyNumber class="form-control" formControlName="phone" name="phone" id="phone">
+                              </div>
+                              <div class="col-md-6 mb-2">
+                                <label for="mobile_number">{{ 'mobileNumber' | translate }}
+                                </label>
+                                <input type="text" onlyNumber class="form-control" formControlName="mobile_number" name="mobile_number" id="mobile_number">
+                              </div>  
+
+                              <div class="col-md-6 mb-2">
+                                <label for="fax">{{ 'fax' | translate }}
+                                </label>
+                                <input type="text" class="form-control" formControlName="fax" name="fax" id="fax">
+                              </div>
+                              
+                              <div class="col-md-6 mb-2">
+                                <label for="email">{{ 'email' | translate }}
+                                </label>
+                                <input type="text" class="form-control" formControlName="email" name="email" id="email">
+                              </div>
+                              
+                              
+                            </div>   
+                        </mat-card>
+                      </div>
+                </div>
+            </div>
+          </div>
+      </mat-tab>
+
+      <mat-tab label="{{ 'comments' | translate }}" >
+          <div class="col-md-12">
+              <div class="kt-portlet__body">
+                  <div class="form-group row">
+                    <div class="col-sm-12 mb-4">
+                        <mat-card>
+                            <div class="col-md-12 mb-2">
+                                <textarea class="form-control" formControlName="comment" style="min-height: 250px;" 
+                                placeholder="{{ 'comments' | translate }}"  ></textarea>
+                            </div> 
+                          </mat-card>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+        </mat-tab>
+      </mat-tab-group>
+
+
+      <div class="kt-portlet__foot">
+          <div class=" p-0">
+            <div class="row" style="padding-top: 20px;">
+              <div class="col-lg-12 text-center">
+                <button type="submit" class="btn btn-success" (click)="submitFrm()" style="padding: 10px 30px;">{{ 'save' | translate }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+</mat-card-content>
+
+
+</form>

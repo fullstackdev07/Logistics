@@ -1,0 +1,41 @@
+<mat-card-content>
+  <mat-tab-group class="demo-tab-group">
+    <mat-tab label="{{'overview' | translate}}">
+      <div class="demo-tab-content">
+        <kt-overview  [basicData]="basicData" (changeFormData)="setDisableStatus($event)"></kt-overview>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'contactPerson' | translate}}">
+      <div class="demo-tab-content">
+        <kt-contact-person  [personIdsList]= "personIdsList"></kt-contact-person>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'comments' | translate}}">
+      <div class="demo-tab-content">
+        <kt-comments [comments] ="comments" (changeFormData)="setDisableStatus($event)"></kt-comments>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="{{'order' | translate}}">
+      <div class="demo-tab-content">
+        <kt-order [tourLists] ="tourList"></kt-order>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="{{'specialorder' | translate}}">
+      <div class="demo-tab-content">
+        <kt-special-tour [specialtourData]="specialtourData" (changeFormData)="setDisableStatus($event)"></kt-special-tour>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <div class="kt-portlet__foot">
+      <div class=" p-0">
+        <div class="row" style="padding-top: 20px;">
+          <div class="col-lg-12 text-center">
+            <button type="submit" class="btn btn-success m-5" (click)="submitFrm()" [disabled]="isDisabled" style="padding: 10px 30px;">{{'save' | translate}}</button>
+			<button type="button" class="btn btn-danger m-5" (click)="cancel()" style="padding: 10px 30px;">{{'cancel' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</mat-card-content>

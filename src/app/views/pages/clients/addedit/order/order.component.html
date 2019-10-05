@@ -1,0 +1,148 @@
+<div class="col-md-12" style="padding-bottom: 15px;">
+
+    <mat-card>
+        <div class="row">
+          <div class="col-md-12">
+              <button mat-raised-button color="primary" (click)="addOrder(content)">{{'add_order' | translate }}</button>
+          </div>
+        
+      
+          <div class="col-md-12">
+            <table class="table table-striped" datatable [dtOptions]="dtOptions" >
+              <thead>
+              <tr>
+                <th scope="col">{{'order_number' | translate }}</th>
+                <th scope="col">{{'client_price' | translate }}</th>
+                <th scope="col">{{'price_basis' | translate }}</th>
+                <th scope="col">{{'day' | translate }}</th>
+                <!-- <th scope="col">{{'remarks' | translate }}</th> -->
+                <th scope="col" class="nosort">{{'action' | translate }}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let route of tourList; index as i">
+                <td>{{ route.order_number }}</td>
+                <td>{{ route.client_price }}</td>
+                <td>{{ route.price_basis }}</td>
+                <td>{{ route.day }}</td>
+                <!-- <td>{{ route.remarks }}</td> -->
+                <td>
+                  <button mat-icon-button (click)="deleteClientOrder(route.clients_orderId , route.ordersId)"
+                      color="warn" matTooltip="{{'delete_client_order' | translate }}" type="button">
+                    <mat-icon>delete</mat-icon>
+                  </button>&nbsp;
+
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </mat-card>
+
+</div>
+
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{'orders' | translate }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <ngb-tabset>
+          <ngb-tab >
+            <ng-template ngbTabTitle><b>{{'add_new_order' | translate }}</b></ng-template>
+            <ng-template ngbTabContent>
+              <form class="kt-form kt-form--label-right" autocomplete="off" id="tourFrm" style="width: 100%" [formGroup]="tourFrm">
+                <div class="kt-portlet__body">
+                  <div class="form-group row">
+                    <div class="col-lg-6 mb-2">
+                      <label for="order_number">{{'order_number' | translate}}</label>
+                      <input type="text" formControlName="order_number" class="form-control" name="order_number" id="order_number"
+                           placeholder="{{'order_number' | translate}}" disabled>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="description">{{'description' | translate}}</label>
+                      <input type="text" formControlName="description" class="form-control" name="description" id="description"
+                           placeholder="{{'description' | translate}}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="client_price">{{'client_price' | translate}}</label>
+                      <input type="text" currencyMask formControlName="client_price" class="form-control" name="client_price" id="client_price"
+                           placeholder="{{'client_price' | translate}}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="price_basis">{{'price_basis' | translate}}</label>
+                      <select class="form-control" formControlName="price_basis" name="price_basis" id="price_basis">
+                        <option *ngFor="let item of priceBasisList"  value="{{item}}">{{item}}</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="day">{{'day' | translate}}</label>
+          
+                      <input type="text" daterangepicker [options]="dayPicker" formControlName="day" id="day" class="form-control" name="day" (selected)="dayPickerSelect($event, daterange)" >
+                      
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="order_type">{{'order_type' | translate}}</label>
+                      <select formControlName="order_type" class="form-control" name="order_type" id="order_type">
+                        <option *ngFor="let item of orderTypeList"  value="{{item}}">{{item}}</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="comment">{{'comments' | translate}}</label>
+                      <input type="text" formControlName="comment" class="form-control" name="comment" id="comment"
+                           placeholder="{{'comments' | translate}}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="valid_from">{{'valid_from' | translate}}</label>
+                      <input type="text" daterangepicker [options]="valid_from" formControlName="valid_from" id="valid_from" class="form-control" name="valid_from" (selected)="valid_fromSelect($event, daterange)" >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="date_of_expiry">{{'date_of_expiry' | translate}}</label>
+                      <input type="text" daterangepicker [options]="valid_from" formControlName="date_of_expiry" id="date_of_expiry" class="form-control" name="date_of_expiry" (selected)="date_of_expirySelect($event, daterange)" >
+                      
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="contractor">{{'contractor' | translate}}</label>
+                      <input type="text" formControlName="contractor" class="form-control" name="contractor" id="contractor"
+                           placeholder="{{'contractor' | translate}}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="contractor_price_week">{{'contractor_price_week' | translate}}</label>
+                      <input type="text" currencyMask formControlName="contractor_price_week" class="form-control" name="contractor_price_week" id="contractor_price_week"
+                           placeholder="{{'contractor_price_week' | translate}}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="contractor_price_weeken">{{'contractor_price_weeken' | translate}}</label>
+                      <input type="text" currencyMask formControlName="contractor_price_weeken" class="form-control" name="contractor_price_weeken" id="contractor_price_weeken"
+                            placeholder="{{'contractor_price_weeken' | translate}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="kt-portlet__foot">
+                  <div class="kt-form__actions p-0">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <button type="button" (click)="submit(createTourForm)" class="btn btn-primary float-right" >{{'save' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab >
+              <ng-template ngbTabTitle><b>{{'add_existing_order' | translate }}</b></ng-template>
+              <ng-template ngbTabContent>
+                <kt-existing-order [clientId] ="clientId" [orderExistIds]= "orderExistIds" (orderIdsList)="receiveOrderIdsList($event)"></kt-existing-order>
+              </ng-template>
+          </ngb-tab>
+      </ngb-tabset>
+    
+  </div>
+</ng-template>

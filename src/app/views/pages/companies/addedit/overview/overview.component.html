@@ -1,0 +1,126 @@
+<form class="kt-form kt-form--label-right" autocomplete="off" id="overviewData" [formGroup]="overviewData" >
+
+  <input type="hidden" name="companyId" formControlName="companyId" >
+
+  <div class="kt-portlet__body">
+    <div class="form-group row">
+      <div class="col-lg-6 mb-4">
+        <mat-card>
+          <div class="mb-2">
+            <label for="company_number">{{'company_number' | translate }}
+            </label>
+            <input type="text" formControlName="company_number"  class="form-control" name="company_number" id="company_number" disabled>
+          </div>
+          <div class="mb-2">
+            <label for="group_name">{{ 'group' | translate }}
+            </label>
+            <input type="text" formControlName="group_name" class="form-control" name="group_name" id="group_name">
+          </div>
+          <div class="mb-2">
+            <label for="name1">{{ 'name1' | translate }}
+            </label>
+            <input type="text" formControlName="name1" class="form-control" name="userName1" id="name1">
+          </div>
+          <div class="mb-2">
+            <label for="name2">{{ 'name2' | translate }}
+            </label>
+            <input type="text" class="form-control" formControlName="name2" name="userName2" id="name2">
+          </div>
+          <div class="mb-2">
+            <label for="street">{{ 'street' | translate }}
+            </label>
+            <input type="text" formControlName="street" class="form-control" name="street" id="street">
+          </div>
+          <div class="mb-2">
+            <label for="postcode">{{ 'zipcode' | translate }}
+            </label>
+            <input type="text" onlyNumber class="form-control" formControlName="postcode" name="postcode" id="postcode">
+          </div>
+          <div class="mb-2">
+            <label for="phone1">{{ 'phone1' | translate }}
+            </label>
+            <input type="text" onlyNumber class="form-control" formControlName="phone1" name="phone1" id="phone1">
+          </div>
+          <div class="mb-2">
+            <label for="phone2">{{ 'phone2' | translate }}
+            </label>
+            <input type="text" onlyNumber class="form-control" formControlName="phone2" name="userPhone2" id="phone2">
+          </div>
+          <div class="mb-2">
+            <label for="fax">{{ 'fax' | translate }}
+            </label>
+            <input type="text" class="form-control" formControlName="fax" name="fax" id="fax">
+          </div>
+          <div class="mb-2">
+            <label class="form-check-label" style="margin-bottom: 7px;">
+               {{ 'ustr_mandatory' | translate }} 
+               <input class="form-check-input m-l-10"   formControlName="ustr_mandatory" id="ustr_mandatory"  name="ustr_mandatory" (click)="changeuStrMandatory()" type="checkbox">
+            </label>
+            <div class="input-group mb-3">
+              <input type="text" onlyNumber formControlName="ustr_mandatory_value" id="ustr_mandatory_value" max="100" maxlength="3" class="form-control" name="ustr_mandatory_value" [attr.disabled]="ustr_mandatory_disabled == true ? true : null">
+              <div class="input-group-append">
+                <span class="input-group-text">%</span>
+              </div>
+              </div>
+          </div>
+
+        </mat-card>
+
+      </div>
+      <div class="col-lg-6 mb-4">
+        <mat-card>
+          <div class="mb-2">
+            <label for="invoice_number">{{ 'invoice_number' | translate }}
+            </label>
+            <input type="text" formControlName="invoice_number" id="invoice_number" class="form-control" name="invoice_number">
+          </div>
+          <div class="mb-2">
+            <label for="num_invoice">{{ 'num_invoice' | translate }}
+            </label>
+            <input type="text" formControlName="num_invoice" id="num_invoice" class="form-control" name="num_invoice">
+          </div>
+          <div class="mb-2">
+            <label for="num_r_branch">{{ 'num_r_branch' | translate }}
+            </label>
+            <input type="text" formControlName="num_r_branch" id="num_r_branch" class="form-control" name="num_r_branch">
+          </div>
+
+          <div class="mb-2">
+            <label for="last_set_position">{{ 'last_set_position' | translate }}
+            </label>
+            <input type="text" formControlName="last_set_position" id="last_set_position" class="form-control" name="last_set_position">
+          </div>
+
+          <div class="mb-2">
+            <label for="ag_ltp_number">{{ 'ag_ltp_number' | translate }}
+            </label>
+            <input type="text" formControlName="ag_ltp_number" id="ag_ltp_number" class="form-control" name="ag_ltp_number">
+          </div>
+
+          <div class="mb-2">
+            <label for="prefix_client">{{ 'prefix_client' | translate }}
+            </label>
+            <input type="text" formControlName="prefix_client" id="prefix_client" class="form-control" name="prefix_client">
+          </div>
+
+          <div class="mb-2">
+            <label for="prefix_power_partner">{{ 'prefix_power_partner' | translate }}
+            </label>
+            <input type="text" formControlName="prefix_power_partner" id="prefix_power_partner" class="form-control" name="prefix_power_partner">
+          </div>
+
+
+          <div class="mb-2">
+            <label for="last_rech_date">{{ 'last_rech_date' | translate }}
+            </label>
+            <input type="text" daterangepicker [options]="last_rech_date" formControlName="last_rech_date" id="last_rech_date" class="form-control" name="last_rech_date" (selected)="last_rech_dateSelect($event)" >
+          </div>
+
+        </mat-card>
+
+      </div>
+      
+    </div>
+  </div>
+  
+</form>

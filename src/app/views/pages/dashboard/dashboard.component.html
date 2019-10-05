@@ -1,0 +1,45 @@
+<mat-card>
+	<div class="mat-table__wrapper">
+		<div class="bg-white float-right p-4 w-100">
+			<div class="button-row">
+				<button mat-raised-button color="primary" (click)="openDialog()">Add User</button>
+			</div>
+		</div>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th scope="col">First Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">Street</th>
+				<th scope="col">Email</th>
+				<th scope="col">Actions</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr *ngFor="let route of dataSourcee; index as i">
+				<td>{{ route.name1 }}</td>
+				<td>{{ route.name2}}</td>
+				<td>{{ route.street }}</td>
+				<td>{{ route.email }}</td>
+				<td>
+					<ng-template ngxPermissionsOnly="canEditECommerceData">
+						<button mat-icon-button color="primary" (click)="goToUser(route._id)" matTooltip="Edit customer">
+							<mat-icon>create</mat-icon>
+						</button>&nbsp;
+					</ng-template>
+
+					<ng-template ngxPermissionsOnly="canDeleteECommerceData">
+						<button mat-icon-button
+								(click)="deleteUser(route._id)"
+								color="warn"
+								matTooltip="Delete customer"
+								type="button">
+							<mat-icon>delete</mat-icon>
+						</button>&nbsp;
+					</ng-template>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</mat-card>

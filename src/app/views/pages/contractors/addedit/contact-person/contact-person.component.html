@@ -1,0 +1,178 @@
+<div class="col-md-12" style="padding-bottom: 15px;">
+  <mat-card>
+      <div class="col-12 ">
+        <div class="row">
+          <div class="bg-white float-right w-100"   >
+            <div class="button-row">
+              <button  mat-raised-button color="primary"
+              (click)="openModal(content)">{{'add_contcat_person' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-12" [ngClass]="{'norecord': personList.length == 0 }">
+        <table  class="table table-striped" datatable [dtOptions]="dtOptions">
+          <thead>
+          <tr>
+            <th scope="col">{{'person_number' | translate }}</th>
+            <th scope="col">{{'salutation' | translate}}</th>
+            <th scope="col">{{'firstName' | translate }}</th>
+            <th scope="col">{{'surname' | translate }}</th>
+            <th scope="col">{{'phone' | translate }}</th>
+            <!-- <th scope="col">{{'mobileNumber' | translate }}</th> -->
+            <!-- <th scope="col">{{'email' | translate }}</th> -->
+            <th scope="col" class="nosort">{{'action' | translate }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let contactPerson of personList; index as i">
+            <td>{{ contactPerson.person_number }}</td>
+            <td>{{ contactPerson.salutation | removenull : ''  }}</td>
+            <td>{{ contactPerson.first_name | removenull : '' }}</td>
+            <td>{{ contactPerson.surname | removenull : '' }}</td>
+            <td>{{ contactPerson.phone }}</td>
+            <!-- <td>{{ contactPerson.mobile_number }}</td> -->
+            <!-- <td>{{ contactPerson.email }}</td> -->
+            <td>
+              <!-- <ng-template ngxPermissionsOnly="canEditECommerceData">
+                <button mat-icon-button color="primary" (click)="editContactPerson(content , i)"
+                matTooltip="{{'edit_contcat_person' | translate }}">
+                  <mat-icon>create</mat-icon>
+                </button>&nbsp;
+              </ng-template> -->
+
+                <button mat-icon-button
+                    (click)="deleteContactPerson(contactPerson.clients_contact_personId , contactPerson.personId)"
+                    color="warn"
+                    matTooltip="{{'delete_contcat_person' | translate }}"
+                    type="button">
+                  <mat-icon>delete</mat-icon>
+                </button>&nbsp;
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header popup_header" >
+
+      <div class="form-check-inline">
+        <label class="form-check-label" for="radio1">{{'contactPerson' | translate }}</label>
+      </div>
+      
+
+    <!-- <h4 class="modal-title">{{'add_contcat_person' | translate }}</h4> -->
+    <button type="button" class="close" aria-label="Close" (click)="modalClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <ngb-tabset>
+      <ngb-tab >
+        <ng-template ngbTabTitle><b>{{'add_new_person' | translate }}</b></ng-template>
+        <ng-template ngbTabContent>
+            <form class="kt-form kt-form--label-right " id="contactPersonFrm" [formGroup]="contactPersonFrm" autocomplete="off" >
+                <!-- <input type="hidden" formControlName="clientId" name="clientId" value="0"> -->
+                <div class="kt-portlet__body">
+                  <div class="form-group row">
+                      <div class="col-md-6 mb-2">
+                          <label for="person_number">{{ 'person_number' | translate }}
+                          </label>
+                          <input type="text" formControlName="person_number"  class="form-control" name="person_number" id="person_number" disabled>
+                        </div>
+
+                    <div class="col-md-6 mb-2">
+                      <label for="type">{{ 'type' | translate }}
+                      </label>
+                      <select class="form-control" formControlName="type" name="type" id="type">
+                        <option *ngFor="let ptyptD of person_type_list" value="{{ptyptD}}">{{ptyptD}}</option>
+                      </select>
+                    </div>
+                    
+                    <div class="col-lg-6 mb-2">
+                      <label for="salutation">{{ 'salutation' | translate }}</label>
+                      <select formControlName="salutation" class="form-control" name="salutation" id="salutation">
+                        <option *ngFor="let item of salutationList" value="{{item}}">{{item}}</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="first_name">{{ 'firstName' | translate }}
+                      </label>
+                      <input type="text" class="form-control"
+                           formControlName="first_name" name="first_name" id="first_name"
+                           placeholder="{{ 'firstName' | translate }}" value="" >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="surname">{{ 'surname' | translate }}</label>
+                      <input type="text" class="form-control" formControlName="surname" name="surname"
+                           id="surname" placeholder="{{ 'surname' | translate }}" value=""  >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="position">{{ 'position' | translate }}</label>
+                      <input type="text" class="form-control" formControlName="position" name="position"
+                           id="position" placeholder="{{ 'position' | translate }}"  value="" >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="department">{{ 'department' | translate }}</label>
+                      <input type="text" class="form-control"
+                           formControlName="department"
+                           name="department" id="department" placeholder="{{ 'department' | translate }}"   value=""  >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="phone">{{ 'phone' | translate }}</label>
+                      <input type="text" onlyNumber  class="form-control" formControlName="phone"
+                           name="phone" id="phone" placeholder="{{ 'phone' | translate }}" value="" >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="mobile_number">{{ 'mobileNumber' | translate }}</label>
+                      <input type="text" onlyNumber class="form-control" formControlName="mobile_number"
+                           name="mobile_number" id="mobile_number" placeholder="{{ 'mobileNumber' | translate }}" value="" >
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="fax">{{ 'fax' | translate }}</label>
+                      <input type="text" class="form-control" formControlName="fax"
+                           name="fax" id="fax" placeholder="{{ 'fax' | translate }}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="email">{{ 'email' | translate }}</label>
+                      <input type="email" class="form-control" formControlName="email"
+                           name="email" id="email" placeholder="{{ 'email' | translate }}">
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for="comment">{{ 'comments' | translate }}</label>
+                      <input type="comment" class="form-control" formControlName="comment"
+                           name="comment" id="comment" placeholder="{{ 'comments' | translate }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="kt-portlet__foot">
+                  <div class="kt-form__actions p-0">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <button type="button" (click)="submit(contactPersonForm); " class="btn btn-primary float-right">{{'add' | translate }}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </form>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>{{'add_existing_person' | translate }}</b></ng-template>
+        <ng-template ngbTabContent>
+            <kt-existing-person [clientId] ="clientId" [personExistIds]="personIdsExist" (personIdsList)="receivePersonIdsList($event)" ></kt-existing-person>
+        </ng-template>
+      </ngb-tab>
+      
+      
+    </ngb-tabset>
+        
+    
+  </div>
+</ng-template>

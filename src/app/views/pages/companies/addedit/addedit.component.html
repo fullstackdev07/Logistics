@@ -1,0 +1,31 @@
+<mat-card-content>
+  <mat-tab-group class="demo-tab-group">
+    <mat-tab label="{{'overview' | translate}}">
+      <div class="demo-tab-content">
+        <kt-overview [basicData]="basicData" (changeFormData)="setDisableStatus($event)"></kt-overview>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'rechnungsfuß' | translate}}">
+      <div class="demo-tab-content">
+        <kt-invoice [invoiceData]="invoiceData" (changeFormData)="setDisableStatus($event)"></kt-invoice>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'banking' | translate}}">
+      <div class="demo-tab-content">
+        <kt-banking [bankingDatas]="bankingData" (changeFormData)="setDisableStatus($event)"></kt-banking>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="kt-portlet__foot">
+      <div class=" p-0">
+        <div class="row" style="padding-top: 20px;">
+          <div class="col-lg-12 text-center">
+            <button type="submit" class="btn btn-success m-5" (click)="submitFrm()" [disabled]="isDisabled" style="padding: 10px 30px;">{{'save' | translate}}</button>
+			<button type="button" class="btn btn-danger m-5" (click)="cancel()" style="padding: 10px 30px;">{{'cancel' | translate}}</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</mat-card-content>

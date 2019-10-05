@@ -1,0 +1,45 @@
+<form class="kt-form kt-form--label-right" autocomplete="off" id="articleFrm" [formGroup]="articleFrm">
+  <input type="hidden" name="articleId" formControlName="articleId">
+    <div class="kt-portlet__body">
+      <div class="form-group row">
+        <div class="col-lg-12 mb-4">
+          <mat-card>
+              <div class="row">
+                  <div class="col-md-6 mb-2">
+                      <label for="article_number">{{ 'article_number' | translate }}
+                      </label>
+                      <input type="text" formControlName="article_number"  class="form-control" name="article_number" id="article_number" disabled>
+                    </div>
+                    
+                    <div class="col-md-6 mb-2">
+                      <label for="description">{{ 'description' | translate }}
+                      </label>
+                      <input type="text" class="form-control" formControlName="description" name="description" id="description">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <label for="price_customer">{{ 'price_customer' | translate }}
+                      </label>
+                      <input type="text" onlyNumber formControlName="price_customer" class="form-control" name="price_customer" id="price_customer">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <label for="price_contractor">{{ 'price_contractor' | translate }}
+                      </label>
+                      <input type="text" onlyNumber class="form-control" formControlName="price_contractor" name="price_contractor" id="price_contractor">
+                    </div>            
+              </div>
+          </mat-card>
+  
+        </div>
+      </div>
+    </div>
+    <div class="kt-portlet__foot">
+        <div class=" p-0">
+          <div class="row" style="padding-top: 20px;">
+            <div class="col-lg-12 text-center">
+              <button type="button" class="btn btn-success" (click)="submitFrm()" style="padding: 10px 30px;">{{ 'save' | translate }}</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
